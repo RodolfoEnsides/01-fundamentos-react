@@ -14,7 +14,26 @@ const posts = [
       name: "Rodolfo Ensides",
       role: "Web Developer"
     },
-    content: [],
+    content: [
+      {type: 'paragraph', content: 'Fala galeraa 👋' },
+      {type: 'paragraph', content: 'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀'},
+      {type: 'link', content: 'jane.design/doctorcare'}       
+    ],
+    publishedAt: new Date('2022-05-03 20:00:00')
+  },
+  {
+    id: 2,
+    author: {
+      avatarUrl: "https://avatars.githubusercontent.com/u/40122769?v=4",
+      name: "Natalia Watanabe",
+      role: "Product Desingner"
+    },
+    content: [
+      {type: 'paragraph', content: 'Fala galeraa 👋' },
+      {type: 'paragraph', content: 'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀'},
+      {type: 'link', content: 'jane.design/doctorcare'}       
+    ],
+    publishedAt: new Date('2022-05-10 20:00:00')
   },
 ];
 
@@ -27,14 +46,15 @@ export function App() {
         <Sidebar />
 
         <main>
-          <Post 
-            author="Rodolfo Ensides" 
-            content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo atque dolorum dolorem nam neque non labore beatae ipsum, qui doloremque esse quidem reprehenderit. Quibusdam deserunt illum vero unde explicabo laborum."
-          />
-          <Post 
-            author="Natalia Watanabe" 
-            content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo atque dolorum dolorem nam neque non labore beatae ipsum, qui doloremque esse quidem reprehenderit. Quibusdam deserunt illum vero unde explicabo laborum."
-          />
+          {posts.map(posts => {
+            return (
+              <Post 
+                author={posts.author}
+                content={posts.content}
+                publishedAt={posts.publishedAt}
+              />
+            )
+          })}
         </main>
       </div>
     </div>
